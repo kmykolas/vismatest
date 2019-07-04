@@ -1,0 +1,17 @@
+{
+    "name": "mykolas/app",
+    "authors": [
+        {
+            "name": "mykolas",
+            "email": "mykolaskazlauskas@gmail.com"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": ""
+        }
+    }
+}
