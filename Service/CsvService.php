@@ -1,6 +1,8 @@
 <?php
 
-require_once('../Service/ValidatorService.php');
+namespace App\Service;
+
+use App\Service\ValidatorService;
 
 class CsvService
 {

@@ -1,6 +1,11 @@
 <?php
-require_once '../Repository/FileDatabase/PersonRepository.php';
-require_once '../Service/CsvService.php';
+
+namespace App\Service;
+
+use App\Repository\FileDatabase\PersonRepository;
+use App\Service\CsvService;
+use App\Entity\Person;
+
 
 class PersonService
 {

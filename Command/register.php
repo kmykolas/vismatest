@@ -1,7 +1,11 @@
 #!php
 <?php
 
-require_once './cli.php';
+namespace App\Command;
+
+require_once 'vendor/autoload.php';
+
+use App\Command\VismaCli;
 
 class Cli extends VismaCli
 {

@@ -1,6 +1,10 @@
 <?php
 
-interface Repository
+namespace App\Repository;
+
+use App\Entity\Person;
+
+interface RepositoryInterface
 {
     public function persistEntity(Person $person): bool;
     

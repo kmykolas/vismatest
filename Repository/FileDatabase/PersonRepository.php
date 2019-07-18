@@ -1,9 +1,12 @@
 <?php
 
-require_once('../Entity/Person.php');
-require_once('../Repository/RepositoryInterface.php');
+namespace App\Repository\FileDatabase;
 
-class PersonRepository implements Repository
+use App\Entity\Person;
+use App\Repository\RepositoryInterface;
+
+
+class PersonRepository implements RepositoryInterface
 {
     const DATA_FILE = 'data_file';
     
@@ -18,7 +21,7 @@ class PersonRepository implements Repository
             $person->getPhone2() . ';' .
             $person->getComment()
         ;
-        file_put_contents('../' . SELF::DATA_FILE, implode('---', $currentData));
+        file_put_contents(SELF::DATA_FILE, implode('---', $currentData));
 
         return true;
     }
@@ -35,7 +38,7 @@ class PersonRepository implements Repository
                 $person[5]
             ;
         }
-        file_put_contents('../' . SELF::DATA_FILE, implode('---', $currentData));
+        file_put_contents(SELF::DATA_FILE, implode('---', $currentData));
         return true;
     }
 
@@ -45,7 +48,7 @@ class PersonRepository implements Repository
         $currentData = $this->read();
         if (isset($currentData[$email])) {
             unset($currentData[$email]);
-            file_put_contents('../' . SELF::DATA_FILE, implode('---', $currentData));
+            file_put_contents(SELF::DATA_FILE, implode('---', $currentData));
             $deleted = true;
         }
 
@@ -71,7 +74,7 @@ class PersonRepository implements Repository
 
     public function read(): ?array
     {
-        $content = file_get_contents('../' . SELF::DATA_FILE);
+        $content = file_get_contents(SELF::DATA_FILE);
         //for such action need to use factory or smth like that
         if (empty($content)) {
             return [];
